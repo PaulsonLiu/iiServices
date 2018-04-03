@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiServices", "iiService\iiServices.csproj", "{A727C8F5-0611-4BA1-8085-CEF6E59D5399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiService", "iiService\iiService.csproj", "{A727C8F5-0611-4BA1-8085-CEF6E59D5399}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiFramework.Util", "iiFramework.Util\iiFramework.Util.csproj", "{79D5DE69-D2A5-4C27-BA88-0B578A599E24}"
 EndProject
