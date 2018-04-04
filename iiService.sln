@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiFramework.Common", "iiFra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiService.Demo", "iiService.Demo\iiService.Demo.csproj", "{A51A4E61-7C9B-43A4-8592-BA41037310C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iiService.Models", "iiService.Models\iiService.Models.csproj", "{E902A4AB-DE83-4DAD-B087-9013DF8A25A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiService.Models", "iiService.Models\iiService.Models.csproj", "{E902A4AB-DE83-4DAD-B087-9013DF8A25A9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iiService.Business", "iiService.Business\iiService.Business.csproj", "{96A5919F-6A12-4AFF-9B62-C042EC8D9382}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "iiService.Business", "iiService.Business\iiService.Business.csproj", "{96A5919F-6A12-4AFF-9B62-C042EC8D9382}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iiFramework.Util.Test", "iiFramework.Util.Test\iiFramework.Util.Test.csproj", "{38D997B8-61D0-490E-A6FD-85B33E8C2950}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{96A5919F-6A12-4AFF-9B62-C042EC8D9382}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96A5919F-6A12-4AFF-9B62-C042EC8D9382}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96A5919F-6A12-4AFF-9B62-C042EC8D9382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38D997B8-61D0-490E-A6FD-85B33E8C2950}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38D997B8-61D0-490E-A6FD-85B33E8C2950}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38D997B8-61D0-490E-A6FD-85B33E8C2950}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38D997B8-61D0-490E-A6FD-85B33E8C2950}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
