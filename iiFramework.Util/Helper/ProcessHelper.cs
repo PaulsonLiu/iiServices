@@ -11,19 +11,19 @@ namespace iiFramework.Util
     {
         public static void KillProcess(string processName)
         {
-            System.Diagnostics.Process myproc = new System.Diagnostics.Process();
-            //得到所有打开的进程   
             try
             {
-                foreach (Process thisproc in Process.GetProcessesByName(processName))
+                Process[] pro = Process.GetProcesses();//获取已开启的所有进程
+                //遍历所有查找到的进程
+                for (int i = 0; i < pro.Length; i++)
                 {
-                    //找到程序进程,kill之。
-                    if (!thisproc.CloseMainWindow())
+
+                    //判断此进程是否是要查找的进程
+                    if (pro[i].ProcessName.ToString() == processName)
                     {
-                        thisproc.Kill();
+                        pro[i].Kill();//结束进程
                     }
                 }
-
             }
             catch (Exception ex)
             {
