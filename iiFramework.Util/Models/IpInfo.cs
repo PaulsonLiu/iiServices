@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iiService.Models
+namespace iiFramework.Util
 {
     public class IpInfoResponse
     {
