@@ -96,35 +96,61 @@ namespace iiFramework.Util
         /// <summary>  
         /// 获取外网ip地址  
         /// </summary>  
-        public string[] GetExtenalIpAddress()
+        public string GetExtenalIpAddress()
         {
-            string[] ip = null;
+            string ip = null;
             try
             {
-                WebClient MyWebClient = new WebClient();
-                MyWebClient.Credentials = CredentialCache.DefaultCredentials;//获取或设置用于向Internet资源的请求进行身份验证的网络凭据
+                //一、通过html元素截取方式
+                //WebClient MyWebClient = new WebClient();
+                //MyWebClient.Credentials = CredentialCache.DefaultCredentials;//获取或设置用于向Internet资源的请求进行身份验证的网络凭据
 
-                Byte[] pageData = MyWebClient.DownloadData("http://www.net.cn/static/customercare/yourip.asp"); //从指定网站下载数据
+                //Byte[] pageData = MyWebClient.DownloadData("http://www.net.cn/static/customercare/yourip.asp"); //从指定网站下载数据
 
-                string pageHtml = Encoding.Default.GetString(pageData);  //如果获取网站页面采用的是GB2312，则使用这句
+                //string pageHtml = Encoding.Default.GetString(pageData);  //如果获取网站页面采用的是GB2312，则使用这句
 
-                //string pageHtml = Encoding.UTF8.GetString(pageData); //如果获取网站页面采用的是UTF-8，则使用这句
+                ////string pageHtml = Encoding.UTF8.GetString(pageData); //如果获取网站页面采用的是UTF-8，则使用这句
 
-                HtmlDocument htmlDocument = new HtmlDocument();
-                htmlDocument.LoadHtml(pageHtml);
+                //HtmlDocument htmlDocument = new HtmlDocument();
+                //htmlDocument.LoadHtml(pageHtml);
 
-                //XmlDocument doc = new XmlDocument();
-                //doc.LoadXml(pageHtml);
-                //XmlNodeList elemList = doc.GetElementsByTagName("h2");
-                //string str = elemList.Item(0).InnerText;                
-                var node = htmlDocument.DocumentNode.SelectSingleNode("//h2");
-                string[] str1 = node.InnerText.Split(',');
+                ////XmlDocument doc = new XmlDocument();
+                ////doc.LoadXml(pageHtml);
+                ////XmlNodeList elemList = doc.GetElementsByTagName("h2");
+                ////string str = elemList.Item(0).InnerText;                
+                //var node = htmlDocument.DocumentNode.SelectSingleNode("//h2");
+                //string[] str1 = node.InnerText.Split(',');
 
-                ip = str1;
+                //ip = str1;
+
+                //二、通过json内容方式
+                string requestUrl = "http://ip-api.com/json/";   //网址URL
+                HttpWebRequest httpRequest = null;
+                HttpWebResponse httpResponse = null;
+
+                try
+                {
+                    httpRequest = (HttpWebRequest)WebRequest.CreateDefault(new Uri(requestUrl));
+                    httpResponse = (HttpWebResponse)httpRequest.GetResponse();
+                    Stream st = httpResponse.GetResponseStream();
+                    StreamReader reader = new StreamReader(st, Encoding.GetEncoding("utf-8"));
+                    string responseStr = reader.ReadToEnd();
+
+                    var jresults = JObject.Parse(responseStr);
+                    ip = jresults["query"].ToString();
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
             }
             catch (WebException webEx)
             {
                 throw webEx;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
             return ip;
         }
